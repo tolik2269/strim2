@@ -19,26 +19,26 @@ public class Main {
                     Education.values()[new Random().nextInt(Education.values().length)])
             );
         }
-//        Stream<Person> stream = persons.stream()
+
         long stream = persons.stream()
-                .filter(i->i.getAge()<18)
+                .filter(i -> i.getAge() < 18)
                 .count();
 
 
         List<String> stream2 = persons.stream()
-                .filter(s->s.getSex()==Sex.MAN)
-                .filter(i->i.getAge()>18 && i.getAge()<28)
+                .filter(s -> s.getSex() == Sex.MAN)
+                .filter(i -> i.getAge() > 18 && i.getAge() < 28)
                 .map(Person::getFamily)
 
                 .collect(Collectors.toList());
 
 
         List<Person> stream3 = persons.stream()
-                .filter(s->s.getSex()==Sex.WOMAN)
-                .filter(i->i.getAge()>18 && i.getAge()<60)
-                .filter(s->s.getSex()==Sex.MAN)
-                .filter(i->i.getAge()>18 && i.getAge()<65)
-                .filter(s->s.getEducation()==Education.HIGHER)
+                .filter(s -> s.getSex() == Sex.WOMAN)
+                .filter(i -> i.getAge() > 18 && i.getAge() < 60)
+                .filter(s -> s.getSex() == Sex.MAN)
+                .filter(i -> i.getAge() > 18 && i.getAge() < 65)
+                .filter(s -> s.getEducation() == Education.HIGHER)
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
     }
